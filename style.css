@@ -46,4 +46,11 @@ body {
     width: 100%;
     border-top: 1px solid gray;
     border-left: 1px solid gray;
+    transition: 0.15s;
+}
+
+/* The classlist that is added by the 'mousemove' event from JavaScript */
+
+.clicked {
+    background-color: black;
 }

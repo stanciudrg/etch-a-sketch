@@ -52,3 +52,9 @@ gridsContainer.addEventListener('mouseleave', (e) => {
     e.preventDefault();
     mouseDown = false;
 });
+
+// Event listener for touch devices
+
+gridsContainer.addEventListener('touchstart', (e) => {
+    e.target.classList.add('clicked');
+});

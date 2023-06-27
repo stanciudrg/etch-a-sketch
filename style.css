@@ -7,3 +7,43 @@
     letter-spacing: normal;
     -webkit-tap-highlight-color: transparent;
 }
+
+body {
+    height: 100vh;
+}
+
+.main-container {
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+
+.grids-container {
+    display: inline-grid;
+    width: 650px;
+    height: 600px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    outline: 1px solid gray;
+}
+
+/* Squares which were drawn on the x axis by JavaScript */
+
+.x-grid-square {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 100%;
+}
+
+/* Squares which were drawn on the y axis by JavaScript */
+
+.y-grid-square {
+    height: 100%;
+    width: 100%;
+    border-top: 1px solid gray;
+    border-left: 1px solid gray;
+}

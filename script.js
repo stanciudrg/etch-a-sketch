@@ -5,6 +5,7 @@ let gridsContainer = document.querySelector('.grids-container');
 let gridSquareX;
 let gridSquareY;
 let squareCount = 32;
+let mouseDown;
 
 // The main loop draws 16 squares on the x axis, while the nested loop draws 16
 // squares on the y axis for each square on the x axis.

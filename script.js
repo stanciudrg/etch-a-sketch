@@ -4,26 +4,31 @@ let mainContainer = document.querySelector('.main-container');
 let gridsContainer = document.querySelector('.grids-container');
 let gridSquareX;
 let gridSquareY;
-let squareCount = 32;
+let squareCount = 16;
 let mouseDown;
+let slider = document.querySelector('.slider');
+let sliderOutput = document.querySelector('.slider-output');
+drawSketch();
 
 // The main loop draws 16 squares on the x axis, while the nested loop draws 16
 // squares on the y axis for each square on the x axis.
 
-for (let i = 0; i < squareCount; i++) {
+function drawSketch() {
+    for (let i = 0; i < squareCount; i++) {
 
-    gridSquareX = document.createElement('div');
-    gridSquareX.classList.add('x-grid-square');
-    gridsContainer.appendChild(gridSquareX);
+        gridSquareX = document.createElement('div');
+        gridSquareX.classList.add('x-grid-square');
+        gridsContainer.appendChild(gridSquareX);
 
-    for (let j = 0; j < squareCount; j++) {
+        for (let j = 0; j < squareCount; j++) {
 
-        gridSquareY = document.createElement('div');
-        gridSquareY.classList.add('y-grid-square');
-        gridSquareX.appendChild(gridSquareY)
+            gridSquareY = document.createElement('div');
+            gridSquareY.classList.add('y-grid-square');
+            gridSquareX.appendChild(gridSquareY)
 
-    };
+        };
 
+    }
 }
 
 // The event listener verifies whether the click button is being held down to determine 
@@ -58,4 +63,11 @@ gridsContainer.addEventListener('mouseleave', (e) => {
 
 gridsContainer.addEventListener('touchstart', (e) => {
     e.target.classList.add('clicked');
+});
+
+slider.addEventListener('input', (e) => {
+    sliderOutput.textContent = `${e.target.value} x ${e.target.value}`;
+    squareCount = e.target.value;
+    gridsContainer.innerHTML = "";
+    drawSketch();
 });

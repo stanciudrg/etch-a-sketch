@@ -5,6 +5,7 @@ let gridsContainer = document.querySelector('.grids-container');
 let gridSquareX;
 let gridSquareY;
 let squareCount = 16;
+let squareColor = '#000000';
 let mouseDown;
 let slider = document.querySelector('.slider');
 let sliderOutput = document.querySelector('.slider-output');
@@ -37,7 +38,7 @@ function drawSketch() {
 gridsContainer.addEventListener('mousemove', (e) => {
     if (mouseDown) {
         e.preventDefault();
-        e.target.classList.add('clicked');
+        e.target.style.backgroundColor = squareColor;
     }
 });
 
@@ -62,7 +63,7 @@ gridsContainer.addEventListener('mouseleave', (e) => {
 // Event listener for touch devices
 
 gridsContainer.addEventListener('touchstart', (e) => {
-    e.target.classList.add('clicked');
+    e.target.style.backgroundColor = squareColor;
 });
 
 slider.addEventListener('input', (e) => {

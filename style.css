@@ -75,12 +75,6 @@ body {
     transition: 0.15s;
 }
 
-/* The classlist that is added by the 'mousemove' event from JavaScript */
-
-.clicked {
-    background-color: black;
-}
-
 .menu {
     display: flex;
     flex-flow: column;

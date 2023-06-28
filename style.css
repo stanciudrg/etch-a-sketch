@@ -10,6 +10,9 @@
     box-sizing: border-box;
     letter-spacing: normal;
     -webkit-tap-highlight-color: transparent;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 body {

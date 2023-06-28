@@ -46,17 +46,17 @@ gridsContainer.addEventListener('mousemove', (e) => {
 // mouseDown is true while the left click button of the mouse is being held down and false
 // in any other instances.
 
-gridsContainer.addEventListener('mousedown', (e) => {
+document.addEventListener('mousedown', (e) => {
     e.preventDefault();
     mouseDown = true;
 });
 
-gridsContainer.addEventListener('mouseup', (e) => {
+document.addEventListener('mouseup', (e) => {
     e.preventDefault();
     mouseDown = false;
 });
 
-gridsContainer.addEventListener('mouseleave', (e) => {
+document.addEventListener('mouseleave', (e) => {
     e.preventDefault();
     mouseDown = false;
 });

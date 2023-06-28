@@ -10,6 +10,7 @@ let mouseDown;
 let slider = document.querySelector('.slider');
 let sliderOutput = document.querySelector('.slider-output');
 drawSketch();
+let colorPicker = document.querySelector('.color-picker');
 
 // The main loop draws 16 squares on the x axis, while the nested loop draws 16
 // squares on the y axis for each square on the x axis.
@@ -71,4 +72,8 @@ slider.addEventListener('input', (e) => {
     squareCount = e.target.value;
     gridsContainer.innerHTML = "";
     drawSketch();
+});
+
+colorPicker.addEventListener('input', (e) => {
+    squareColor = e.target.value;
 });

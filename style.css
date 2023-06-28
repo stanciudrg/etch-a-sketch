@@ -1,6 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Agdasima&display=swap');
+
 /* CSS reset */
 
 * {
+    font-family: 'Agdasima', Arial, Helvetica, sans-serif;
+    font-weight: lighter;
     margin: 0;
     padding: 0;
     box-sizing: border-box;

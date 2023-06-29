@@ -117,6 +117,11 @@ clearButton.addEventListener('click', (e) => {
     if (!gridLinesButton.classList.contains('selected')) {
         gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
     }
+    if (eraserButton.classList.contains('selected')) {
+        penButton.classList.add('selected');
+        eraserButton.classList.remove('selected');
+        squareColor = colorPicker.value;
+    }
 });
 
 clearButton.addEventListener('mousedown', (e) => {

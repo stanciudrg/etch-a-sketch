@@ -79,6 +79,9 @@ slider.addEventListener('input', (e) => {
     squareCount = e.target.value;
     gridsContainer.innerHTML = "";
     drawSketch();
+    if (!gridLinesButton.classList.contains('selected')) {
+        gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
+    }
 });
 
 colorPicker.addEventListener('input', (e) => {
@@ -111,4 +114,7 @@ gridLinesButton.addEventListener('click', (e) => {
 clearButton.addEventListener('click', (e) => {
     gridsContainer.innerHTML = "";
     drawSketch();
+    if (!gridLinesButton.classList.contains('selected')) {
+        gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
+    }
 });

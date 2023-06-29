@@ -73,9 +73,12 @@ body {
 .y-grid-square {
     height: 100%;
     width: 100%;
-    border-top: 1px solid gray;
-    border-left: 1px solid gray;
-    transition: 0.15s;
+    box-shadow: 0px 0px 0px 1px gray;
+    transition: background 0.15s;
+}
+
+.grid-lines {
+    box-shadow: none;
 }
 
 .menu {

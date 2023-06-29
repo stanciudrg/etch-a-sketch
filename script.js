@@ -9,12 +9,13 @@ let squareColor = '#000000';
 let mouseDown;
 let penButton = document.querySelector('.pen-button');
 let eraserButton = document.querySelector('.eraser-button');
+let gridLinesButton = document.querySelector('.grid-lines-button');
 let clearButton = document.querySelector('.clear-button');
 let isPenSelected = true;
 let slider = document.querySelector('.slider');
 let sliderOutput = document.querySelector('.slider-output');
-drawSketch();
 let colorPicker = document.querySelector('.color-picker');
+drawSketch();
 
 // The main loop draws 16 squares on the x axis, while the nested loop draws 16
 // squares on the y axis for each square on the x axis.
@@ -30,6 +31,7 @@ function drawSketch() {
 
             gridSquareY = document.createElement('div');
             gridSquareY.classList.add('y-grid-square');
+            gridSquareY.style.backgroundColor = 'rgb(255, 255, 255)';
             gridSquareX.appendChild(gridSquareY)
 
         };
@@ -99,6 +101,11 @@ eraserButton.addEventListener('click', (e) => {
     penButton.classList.remove('selected');
     rainbowButton.classList.remove('selected');
     darkenButton.classList.remove('selected');
+});
+
+gridLinesButton.addEventListener('click', (e) => {
+    gridLinesButton.classList.toggle('selected');
+    gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.toggle('grid-lines')))
 });
 
 clearButton.addEventListener('click', (e) => {

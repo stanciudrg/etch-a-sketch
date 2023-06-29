@@ -112,7 +112,8 @@ penButton.addEventListener('click', (e) => {
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
     randomButton.classList.remove('selected');
-    darkenButton.classList.remove('selected');
+    colorPicker.style.cursor = 'pointer';
+    colorPicker.style.pointerEvents = 'auto';
 });
 
 eraserButton.addEventListener('click', (e) => {
@@ -121,14 +122,16 @@ eraserButton.addEventListener('click', (e) => {
     eraserButton.classList.add('selected');
     penButton.classList.remove('selected');
     randomButton.classList.remove('selected');
-    darkenButton.classList.remove('selected');
+    colorPicker.style.cursor = 'pointer';
+    colorPicker.style.pointerEvents = 'auto';
 });
 
 randomButton.addEventListener('click', (e) => {
     randomButton.classList.add('selected');
     penButton.classList.remove('selected');
     eraserButton.classList.remove('selected');
-    progressiveButton.classList.remove('selected');
+    colorPicker.style.cursor = 'default';
+    colorPicker.style.pointerEvents = 'none';
 });
 
 gridLinesButton.addEventListener('click', (e) => {

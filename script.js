@@ -12,7 +12,6 @@ let eraserButton = document.querySelector('.eraser-button');
 let randomButton = document.querySelector('.random-button');
 let gridLinesButton = document.querySelector('.grid-lines-button');
 let clearButton = document.querySelector('.clear-button');
-let isPenSelected = true;
 let slider = document.querySelector('.slider');
 let sliderOutput = document.querySelector('.slider-output');
 let colorPicker = document.querySelector('.color-picker');
@@ -103,11 +102,16 @@ slider.addEventListener('input', (e) => {
 });
 
 colorPicker.addEventListener('input', (e) => {
-    if (isPenSelected) { squareColor = e.target.value; }
+    squareColor = e.target.value;
 });
 
+colorPicker.addEventListener('click', (e) => {
+    penButton.classList.add('selected');
+    eraserButton.classList.remove('selected');
+    randomButton.classList.remove('selected');
+})
+
 penButton.addEventListener('click', (e) => {
-    isPenSelected = true;
     squareColor = colorPicker.value;;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
@@ -117,7 +121,6 @@ penButton.addEventListener('click', (e) => {
 });
 
 eraserButton.addEventListener('click', (e) => {
-    isPenSelected = false;
     squareColor = '#FFFFFF';
     eraserButton.classList.add('selected');
     penButton.classList.remove('selected');

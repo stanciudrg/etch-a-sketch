@@ -9,6 +9,7 @@ let squareColor = '#000000';
 let mouseDown;
 let penButton = document.querySelector('.pen-button');
 let eraserButton = document.querySelector('.eraser-button');
+let randomButton = document.querySelector('.random-button');
 let gridLinesButton = document.querySelector('.grid-lines-button');
 let clearButton = document.querySelector('.clear-button');
 let isPenSelected = true;
@@ -39,12 +40,29 @@ function drawSketch() {
     }
 }
 
+function generateRandomColor() {
+
+    function generateRandomNumber(min, max) {
+        return Math.round(Math.random() * (max - min) + min)
+    };
+
+    let { hue, saturation, lightness } = {
+        hue: generateRandomNumber(0, 360),
+        saturation: generateRandomNumber(70, 100),
+        lightness: generateRandomNumber(20, 90)
+    };
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+}
+
 // The event listener verifies whether the click button is being held down to determine 
 // whether the color of each square hovered by the mouse should be changed.
 
-gridsContainer.addEventListener('mousemove', (e) => {
-    if (mouseDown) {
-        e.preventDefault();
+gridsContainer.addEventListener('mouseover', (e) => {
+    e.preventDefault();
+    if (mouseDown && randomButton.classList.contains('selected')) {
+        e.target.style.backgroundColor = generateRandomColor();
+    } else if (mouseDown) {
         e.target.style.backgroundColor = squareColor;
     }
 });
@@ -93,7 +111,7 @@ penButton.addEventListener('click', (e) => {
     squareColor = colorPicker.value;;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
-    rainbowButton.classList.remove('selected');
+    randomButton.classList.remove('selected');
     darkenButton.classList.remove('selected');
 });
 
@@ -102,8 +120,15 @@ eraserButton.addEventListener('click', (e) => {
     squareColor = '#FFFFFF';
     eraserButton.classList.add('selected');
     penButton.classList.remove('selected');
-    rainbowButton.classList.remove('selected');
+    randomButton.classList.remove('selected');
     darkenButton.classList.remove('selected');
+});
+
+randomButton.addEventListener('click', (e) => {
+    randomButton.classList.add('selected');
+    penButton.classList.remove('selected');
+    eraserButton.classList.remove('selected');
+    progressiveButton.classList.remove('selected');
 });
 
 gridLinesButton.addEventListener('click', (e) => {

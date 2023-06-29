@@ -118,3 +118,15 @@ clearButton.addEventListener('click', (e) => {
         gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
     }
 });
+
+clearButton.addEventListener('mousedown', (e) => {
+    clearButton.classList.toggle('selected');
+});
+
+clearButton.addEventListener('mouseup', (e) => {
+    clearButton.classList.remove('selected');
+});
+
+clearButton.addEventListener('mouseleave', (e) => {
+    clearButton.classList.remove('selected');
+});

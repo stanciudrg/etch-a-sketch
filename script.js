@@ -66,6 +66,12 @@ gridsContainer.addEventListener('mouseover', (e) => {
     }
 });
 
+// Event listener for touch devices
+
+gridsContainer.addEventListener('touchstart', (e) => {
+    e.target.style.backgroundColor = squareColor;
+});
+
 // mouseDown is true while the left click button of the mouse is being held down and false
 // in any other instances.
 
@@ -85,12 +91,6 @@ document.addEventListener('mouseleave', (e) => {
     mouseDown = false;
 });
 
-// Event listener for touch devices
-
-gridsContainer.addEventListener('touchstart', (e) => {
-    e.target.style.backgroundColor = squareColor;
-});
-
 slider.addEventListener('input', (e) => {
     sliderOutput.textContent = `${e.target.value} x ${e.target.value}`;
     squareCount = e.target.value;
@@ -106,6 +106,7 @@ colorPicker.addEventListener('input', (e) => {
 });
 
 colorPicker.addEventListener('click', (e) => {
+    squareColor = colorPicker.value;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
     randomButton.classList.remove('selected');

@@ -178,6 +178,15 @@ body {
     font-size: 1.3rem;
 }
 
+.progressive-selected {
+    background-image: linear-gradient(90deg,
+            hsl(0deg 0% 100%) 0%,
+            hsl(0deg 0% 50%) 48%,
+            hsl(0deg 0% 0%) 100%);
+    color: white;
+    text-shadow: 0.5px 0.5px 3px black;
+}
+
 .selected {
     background: grey;
     color: white;

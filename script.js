@@ -6,10 +6,12 @@ let gridSquareX;
 let gridSquareY;
 let squareCount = 16;
 let squareColor = '#000000';
+let progressiveColor = 100;
 let mouseDown;
 let penButton = document.querySelector('.pen-button');
 let eraserButton = document.querySelector('.eraser-button');
 let randomButton = document.querySelector('.random-button');
+let progressiveButton = document.querySelector('.progressive-button');
 let gridLinesButton = document.querySelector('.grid-lines-button');
 let clearButton = document.querySelector('.clear-button');
 let slider = document.querySelector('.slider');
@@ -54,6 +56,24 @@ function generateRandomColor() {
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
 }
 
+function darkenColor() {
+
+    function darken() {
+        progressiveColor -= 10;
+        return progressiveColor;
+    }
+
+
+    let { hue, saturation, lightness } = {
+        hue: 0,
+        saturation: 0,
+        lightness: darken()
+    }
+
+    return `hsl(${hue}, ${saturation}%, ${lightness}%)`;
+
+}
+
 // The event listener verifies whether the click button is being held down to determine 
 // whether the color of each square hovered by the mouse should be changed.
 
@@ -61,7 +81,117 @@ gridsContainer.addEventListener('mouseover', (e) => {
     e.preventDefault();
     if (mouseDown && randomButton.classList.contains('selected')) {
         e.target.style.backgroundColor = generateRandomColor();
-    } else if (mouseDown) {
+    } else if (mouseDown && progressiveButton.classList.contains('progressive-selected')) {
+        switch (e.target.style.backgroundColor) {
+            case 'rgb(255, 255, 255)':
+                progressiveColor = 100;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(230, 230, 230)':
+                progressiveColor = 90;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(204, 204, 204)':
+                progressiveColor = 80;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(179, 179, 179)':
+                progressiveColor = 70;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(153, 153, 153)':
+                progressiveColor = 60;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(128, 128, 128)':
+                progressiveColor = 50;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(102, 102, 102)':
+                progressiveColor = 40;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(77, 77, 77)':
+                progressiveColor = 30;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(51, 51, 51)':
+                progressiveColor = 20;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(26, 26, 26)':
+                progressiveColor = 10;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(0, 0, 0)':
+                progressiveColor = 0;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            default:
+                progressiveColor = 100;
+                e.target.style.backgroundColor = darkenColor();
+        }
+    }
+    else if (mouseDown) {
+        e.target.style.backgroundColor = squareColor;
+    }
+});
+
+gridsContainer.addEventListener('mousedown', (e) => {
+    e.preventDefault();
+    if (randomButton.classList.contains('selected')) {
+        e.target.style.backgroundColor = generateRandomColor();
+    } else if (progressiveButton.classList.contains('progressive-selected')) {
+        switch (e.target.style.backgroundColor) {
+            case 'rgb(255, 255, 255)':
+                progressiveColor = 100;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(230, 230, 230)':
+                progressiveColor = 90;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(204, 204, 204)':
+                progressiveColor = 80;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(179, 179, 179)':
+                progressiveColor = 70;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(153, 153, 153)':
+                progressiveColor = 60;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(128, 128, 128)':
+                progressiveColor = 50;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(102, 102, 102)':
+                progressiveColor = 40;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(77, 77, 77)':
+                progressiveColor = 30;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(51, 51, 51)':
+                progressiveColor = 20;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(26, 26, 26)':
+                progressiveColor = 10;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            case 'rgb(0, 0, 0)':
+                progressiveColor = 0;
+                e.target.style.backgroundColor = darkenColor();
+                break;
+            default:
+                progressiveColor = 100;
+                e.target.style.backgroundColor = darkenColor();
+        }
+    } else {
         e.target.style.backgroundColor = squareColor;
     }
 });
@@ -109,6 +239,7 @@ colorPicker.addEventListener('click', (e) => {
     squareColor = colorPicker.value;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
+    progressiveButton.classList.remove('progressive-selected');
     randomButton.classList.remove('selected');
 })
 
@@ -117,6 +248,7 @@ penButton.addEventListener('click', (e) => {
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
     randomButton.classList.remove('selected');
+    progressiveButton.classList.remove('progressive-selected');
     colorPicker.style.cursor = 'pointer';
     colorPicker.style.pointerEvents = 'auto';
 });
@@ -126,6 +258,7 @@ eraserButton.addEventListener('click', (e) => {
     eraserButton.classList.add('selected');
     penButton.classList.remove('selected');
     randomButton.classList.remove('selected');
+    progressiveButton.classList.remove('progressive-selected');
     colorPicker.style.cursor = 'pointer';
     colorPicker.style.pointerEvents = 'auto';
 });
@@ -134,6 +267,16 @@ randomButton.addEventListener('click', (e) => {
     randomButton.classList.add('selected');
     penButton.classList.remove('selected');
     eraserButton.classList.remove('selected');
+    progressiveButton.classList.remove('progressive-selected');
+    colorPicker.style.cursor = 'default';
+    colorPicker.style.pointerEvents = 'none';
+});
+
+progressiveButton.addEventListener('click', (e) => {
+    progressiveButton.classList.add('progressive-selected');
+    penButton.classList.remove('selected');
+    eraserButton.classList.remove('selected');
+    randomButton.classList.remove('selected');
     colorPicker.style.cursor = 'default';
     colorPicker.style.pointerEvents = 'none';
 });

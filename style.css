@@ -158,6 +158,7 @@ body {
 .pen-button,
 .eraser-button,
 .random-button,
+.progressive-button,
 .grid-lines-button {
     display: flex;
     justify-content: center;
@@ -171,6 +172,7 @@ body {
 .pen-button p,
 .eraser-button p,
 .random-button p,
+.progressive-button p,
 .grid-lines-button p {
     text-align: center;
     font-size: 1.3rem;

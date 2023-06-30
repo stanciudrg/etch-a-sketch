@@ -47,8 +47,8 @@ function generateRandomColor() {
 
     let { hue, saturation, lightness } = {
         hue: generateRandomNumber(0, 360),
-        saturation: generateRandomNumber(70, 100),
-        lightness: generateRandomNumber(20, 90)
+        saturation: 100,
+        lightness: generateRandomNumber(50, 80)
     };
 
     return `hsl(${hue}, ${saturation}%, ${lightness}%)`;

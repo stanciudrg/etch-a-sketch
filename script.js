@@ -79,7 +79,7 @@ function darkenColor() {
 
 gridsContainer.addEventListener('mouseover', (e) => {
     e.preventDefault();
-    if (mouseDown && randomButton.classList.contains('selected')) {
+    if (mouseDown && randomButton.classList.contains('random-selected')) {
         e.target.style.backgroundColor = generateRandomColor();
     } else if (mouseDown && progressiveButton.classList.contains('progressive-selected')) {
         switch (e.target.style.backgroundColor) {
@@ -139,7 +139,7 @@ gridsContainer.addEventListener('mouseover', (e) => {
 
 gridsContainer.addEventListener('mousedown', (e) => {
     e.preventDefault();
-    if (randomButton.classList.contains('selected')) {
+    if (randomButton.classList.contains('random-selected')) {
         e.target.style.backgroundColor = generateRandomColor();
     } else if (progressiveButton.classList.contains('progressive-selected')) {
         switch (e.target.style.backgroundColor) {
@@ -240,14 +240,14 @@ colorPicker.addEventListener('click', (e) => {
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
     progressiveButton.classList.remove('progressive-selected');
-    randomButton.classList.remove('selected');
+    randomButton.classList.remove('random-selected');
 })
 
 penButton.addEventListener('click', (e) => {
     squareColor = colorPicker.value;;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
-    randomButton.classList.remove('selected');
+    randomButton.classList.remove('random-selected');
     progressiveButton.classList.remove('progressive-selected');
     colorPicker.style.cursor = 'pointer';
     colorPicker.style.pointerEvents = 'auto';
@@ -257,14 +257,14 @@ eraserButton.addEventListener('click', (e) => {
     squareColor = '#FFFFFF';
     eraserButton.classList.add('selected');
     penButton.classList.remove('selected');
-    randomButton.classList.remove('selected');
+    randomButton.classList.remove('random-selected');
     progressiveButton.classList.remove('progressive-selected');
     colorPicker.style.cursor = 'pointer';
     colorPicker.style.pointerEvents = 'auto';
 });
 
 randomButton.addEventListener('click', (e) => {
-    randomButton.classList.add('selected');
+    randomButton.classList.add('random-selected');
     penButton.classList.remove('selected');
     eraserButton.classList.remove('selected');
     progressiveButton.classList.remove('progressive-selected');
@@ -276,7 +276,7 @@ progressiveButton.addEventListener('click', (e) => {
     progressiveButton.classList.add('progressive-selected');
     penButton.classList.remove('selected');
     eraserButton.classList.remove('selected');
-    randomButton.classList.remove('selected');
+    randomButton.classList.remove('random-selected');
     colorPicker.style.cursor = 'default';
     colorPicker.style.pointerEvents = 'none';
 });

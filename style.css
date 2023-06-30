@@ -178,6 +178,18 @@ body {
     font-size: 1.3rem;
 }
 
+.random-selected {
+    background-image: linear-gradient(90deg,
+            hsl(0deg 100% 50%) 0%,
+            hsl(50deg 100% 50%) 20%,
+            hsl(100deg 100% 50%) 40%,
+            hsl(170deg 100% 38%) 60%,
+            hsl(250deg 100% 50%) 80%,
+            hsl(280deg 100% 50%) 100%);
+    color: white;
+    text-shadow: 0.5px 0.5px 3px black;
+}
+
 .progressive-selected {
     background-image: linear-gradient(90deg,
             hsl(0deg 0% 100%) 0%,

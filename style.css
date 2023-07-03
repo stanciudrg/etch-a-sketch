@@ -232,3 +232,88 @@ body {
 .clear-button p {
     font-size: 1rem;
 }
+
+@media only screen and (max-width: 1024px) {
+
+    body {
+        padding: 0.5rem 0rem 1rem 0rem;
+    }
+
+    .main-container {
+        height: 100%;
+        width: 600px;
+        margin-bottom: 0rem;
+        gap: 0.5rem;
+    }
+
+    .title h1 {
+        font-size: 1.5rem;
+    }
+
+    .sketch-container {
+        flex-flow: column;
+        width: 100%;
+        gap: 2rem;
+    }
+
+    .grids-container {
+        touch-action: pinch-zoom;
+    }
+
+    .pen-eraser-container {
+        display: flex;
+        flex-flow: row;
+        gap: 1rem;
+    }
+
+    .random-progressive-container {
+        display: flex;
+        flex-flow: row;
+        gap: 1rem;
+    }
+
+    .pen-button p,
+    .eraser-button p,
+    .grid-lines-button p,
+    .random-button p,
+    .progressive-button p {
+        text-align: center;
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 680px) {
+
+    .main-container {
+        width: 400px;
+        height: 100%;
+    }
+
+    .grids-container {
+        width: 400px;
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 430px) {
+
+    body {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+
+    .main-container {
+        width: 100%;
+    }
+
+    .grids-container {
+        width: 100%;
+        height: 350px;
+    }
+}
+
+@media only screen and (max-width: 380px) {
+    .grids-container {
+        height: 300px;
+    }
+}

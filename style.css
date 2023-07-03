@@ -51,6 +51,7 @@ body {
 }
 
 .grids-container {
+    touch-action: pinch-zoom;
     display: flex;
     width: 600px;
     height: 600px;

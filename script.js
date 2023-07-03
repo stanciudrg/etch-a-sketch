@@ -1,19 +1,18 @@
 // Variables
 
-let mainContainer = document.querySelector('.main-container');
 let gridsContainer = document.querySelector('.grids-container');
-let gridSquareX;
-let gridSquareY;
 let squareCount = 16;
 let squareColor = '#000000';
 let progressiveColor = 100;
-let mouseDown;
+let gridSquareX;
+let gridSquareY;
 let penButton = document.querySelector('.pen-button');
 let eraserButton = document.querySelector('.eraser-button');
 let randomButton = document.querySelector('.random-button');
 let progressiveButton = document.querySelector('.progressive-button');
 let gridLinesButton = document.querySelector('.grid-lines-button');
 let clearButton = document.querySelector('.clear-button');
+let mouseDown;
 let slider = document.querySelector('.slider');
 let sliderOutput = document.querySelector('.slider-output');
 let colorPicker = document.querySelector('.color-picker');
@@ -198,10 +197,67 @@ gridsContainer.addEventListener('mousedown', (e) => {
 
 // Event listener for touch devices
 
-gridsContainer.addEventListener('touchstart', (e) => {
-    e.target.style.backgroundColor = squareColor;
+gridsContainer.addEventListener('touchmove', (e) => {
+    let touch = e.touches[0];
+    let square = document.elementFromPoint(touch.clientX, touch.clientY);
+    if (square && square.classList.contains('y-grid-square')) {
+        if (randomButton.classList.contains('random-selected')) {
+            square.style.backgroundColor = generateRandomColor();
+        } else if (progressiveButton.classList.contains('progressive-selected')) {
+            switch (square.style.backgroundColor) {
+                case 'rgb(255, 255, 255)':
+                    progressiveColor = 100;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(230, 230, 230)':
+                    progressiveColor = 90;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(204, 204, 204)':
+                    progressiveColor = 80;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(179, 179, 179)':
+                    progressiveColor = 70;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(153, 153, 153)':
+                    progressiveColor = 60;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(128, 128, 128)':
+                    progressiveColor = 50;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(102, 102, 102)':
+                    progressiveColor = 40;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(77, 77, 77)':
+                    progressiveColor = 30;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(51, 51, 51)':
+                    progressiveColor = 20;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(26, 26, 26)':
+                    progressiveColor = 10;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                case 'rgb(0, 0, 0)':
+                    progressiveColor = 0;
+                    square.style.backgroundColor = darkenColor();
+                    break;
+                default:
+                    progressiveColor = 100;
+                    square.style.backgroundColor = darkenColor();
+            }
+        } else {
+            square.style.backgroundColor = squareColor;
+        }
+    }
 });
-
 // mouseDown is true while the left click button of the mouse is being held down and false
 // in any other instances.
 

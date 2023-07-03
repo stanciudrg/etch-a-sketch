@@ -76,7 +76,7 @@ body {
     height: 100%;
     width: 100%;
     box-shadow: 0px 0px 0px 1px gray;
-    r background-color: #FFFFFF
+    background-color: #FFFFFF
 }
 
 .grid-lines {
@@ -88,6 +88,18 @@ body {
     flex-flow: column;
     gap: 1rem;
     justify-content: flex-start;
+}
+
+.pen-eraser-container {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
+}
+
+.random-progressive-container {
+    display: flex;
+    flex-flow: column;
+    gap: 1rem;
 }
 
 .slider-title {

@@ -359,9 +359,17 @@ clearButton.addEventListener('mousedown', (e) => {
     clearButton.classList.toggle('selected');
 });
 
+clearButton.addEventListener('touchstart', (e) => {
+    clearButton.classList.toggle('selected');
+});
+
 clearButton.addEventListener('mouseup', (e) => {
     clearButton.classList.remove('selected');
 });
+
+clearButton.addEventListener('touchend', (e) => {
+    clearButton.classList.remove('selected');
+})
 
 clearButton.addEventListener('mouseleave', (e) => {
     clearButton.classList.remove('selected');

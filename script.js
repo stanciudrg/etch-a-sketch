@@ -4,8 +4,8 @@ let gridsContainer = document.querySelector('.grids-container');
 let squareCount = 16;
 let squareColor = '#000000';
 let progressiveColor = 100;
-let gridSquareX;
-let gridSquareY;
+let gridSquaresX;
+let gridSquaresY;
 let penButton = document.querySelector('.pen-button');
 let eraserButton = document.querySelector('.eraser-button');
 let randomButton = document.querySelector('.random-button');
@@ -24,16 +24,16 @@ drawSketch();
 function drawSketch() {
     for (let i = 0; i < squareCount; i++) {
 
-        gridSquareX = document.createElement('div');
-        gridSquareX.classList.add('x-grid-square');
-        gridsContainer.appendChild(gridSquareX);
+        gridSquaresX = document.createElement('div');
+        gridSquaresX.classList.add('x-grid-squares');
+        gridsContainer.appendChild(gridSquaresX);
 
         for (let j = 0; j < squareCount; j++) {
 
-            gridSquareY = document.createElement('div');
-            gridSquareY.classList.add('y-grid-square');
-            gridSquareY.style.backgroundColor = 'rgb(255, 255, 255)';
-            gridSquareX.appendChild(gridSquareY)
+            gridSquaresY = document.createElement('div');
+            gridSquaresY.classList.add('y-grid-squares');
+            gridSquaresY.style.backgroundColor = 'rgb(255, 255, 255)';
+            gridSquaresX.appendChild(gridSquaresY)
 
         };
 
@@ -200,7 +200,7 @@ gridsContainer.addEventListener('mousedown', (e) => {
 gridsContainer.addEventListener('touchmove', (e) => {
     let touch = e.touches[0];
     let square = document.elementFromPoint(touch.clientX, touch.clientY);
-    if (square && square.classList.contains('y-grid-square')) {
+    if (square && square.classList.contains('y-grid-squares')) {
         if (randomButton.classList.contains('random-selected')) {
             square.style.backgroundColor = generateRandomColor();
         } else if (progressiveButton.classList.contains('progressive-selected')) {
@@ -282,8 +282,8 @@ slider.addEventListener('input', (e) => {
     squareCount = e.target.value;
     gridsContainer.innerHTML = "";
     drawSketch();
-    if (!gridLinesButton.classList.contains('selected')) {
-        gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
+    if (gridLinesButton.classList.contains('selected')) {
+        gridsContainer.childNodes.forEach((gridSquaresX) => gridSquaresX.childNodes.forEach((gridSquaresY) => gridSquaresY.classList.add('grid-lines')));
     }
 });
 
@@ -300,7 +300,7 @@ colorPicker.addEventListener('click', (e) => {
 })
 
 penButton.addEventListener('click', (e) => {
-    squareColor = colorPicker.value;;
+    squareColor = colorPicker.value;
     penButton.classList.add('selected');
     eraserButton.classList.remove('selected');
     randomButton.classList.remove('random-selected');
@@ -339,14 +339,14 @@ progressiveButton.addEventListener('click', (e) => {
 
 gridLinesButton.addEventListener('click', (e) => {
     gridLinesButton.classList.toggle('selected');
-    gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.toggle('grid-lines')))
+    gridsContainer.childNodes.forEach((gridSquaresX) => gridSquaresX.childNodes.forEach((gridSquaresY) => gridSquaresY.classList.toggle('grid-lines')))
 });
 
 clearButton.addEventListener('click', (e) => {
     gridsContainer.innerHTML = "";
     drawSketch();
-    if (!gridLinesButton.classList.contains('selected')) {
-        gridsContainer.childNodes.forEach((gridSquareX) => gridSquareX.childNodes.forEach((gridSquareY) => gridSquareY.classList.add('grid-lines')));
+    if (gridLinesButton.classList.contains('selected')) {
+        gridsContainer.childNodes.forEach((gridSquaresX) => gridSquaresX.childNodes.forEach((gridSquaresY) => gridSquaresY.classList.add('grid-lines')));
     }
     if (eraserButton.classList.contains('selected')) {
         penButton.classList.add('selected');

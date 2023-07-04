@@ -6,8 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
-    <script src="script.js" defer></script>
     <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
     <script src="https://kit.fontawesome.com/469d5b5476.js" crossorigin="anonymous"></script>
 </head>
 
@@ -18,8 +18,8 @@
         </div>
         <div class="sketch-container">
             <div class="grids-container"></div>
-            <div class="menu">
-                <div class="pen-eraser-container">
+            <div class="menu-container">
+                <div class="standard-buttons-container">
                     <div class="pen-button selected">
                         <i class="fa-solid fa-pen fa-lg"></i>
                     </div>
@@ -31,7 +31,7 @@
                     <p class="color-picker-title">Color</p>
                     <input type="color" id="color-picker" class="color-picker">
                 </div>
-                <div class="random-progressive-container">
+                <div class="extra-buttons-container">
                     <div class="random-button">
                         <p>
                             Random
@@ -48,7 +48,7 @@
                     <input type="range" min="1" max="100" value="16" class="slider">
                     <p class="slider-output">16 x 16</p>
                 </div>
-                <div class="grid-lines-button selected">
+                <div class="grid-lines-button">
                     <i class="fa-solid fa-table-cells-large fa-lg"></i>
                 </div>
                 <div class="clear-button">

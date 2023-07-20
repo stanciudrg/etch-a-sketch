@@ -24,7 +24,7 @@ body {
 }
 
 .main-container {
-    height: 100vh;
+    height: calc(100vh - 80px);
     display: flex;
     flex-flow: column;
     justify-content: center;
@@ -210,10 +210,16 @@ body {
     gap: 0.5rem;
 }
 
+@media only screen and (max-height: 800px) {
+    .main-container {
+        height: 100vh;
+    }
+}
+
 @media only screen and (max-width: 1024px) {
 
     body {
-        padding: 0.5rem 0rem 1rem 0rem;
+        padding: 1rem 0rem 1rem 0rem;
     }
 
     .main-container {
@@ -247,6 +253,10 @@ body {
 }
 
 @media only screen and (max-width: 680px) {
+
+    body {
+        padding-top: 1rem;
+    }
 
     .main-container {
         width: 400px;

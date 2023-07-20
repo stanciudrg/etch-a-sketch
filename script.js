@@ -8,30 +8,22 @@ let mouseDown;
 // mouseDown is true while the left click button of the mouse is being held down and false
 // in any other instances.
 
-document.addEventListener('mousedown', (e) => {
-    mouseDown = true;
-});
+document.addEventListener('mousedown', (e) => { mouseDown = true; });
 
-document.addEventListener('mouseup', (e) => {
-    mouseDown = false;
-});
+document.addEventListener('mouseup', (e) => { mouseDown = false; });
 
-document.addEventListener('mouseleave', (e) => {
-    mouseDown = false;
-});
+document.addEventListener('mouseleave', (e) => { mouseDown = false; });
 
 // Prevents dragging
 
-document.addEventListener('dragstart', (e) => {
-    e.preventDefault()
-});
-
+document.addEventListener('dragstart', (e) => { e.preventDefault() });
 
 //Grids container
 
 let gridsContainer = document.querySelector('.grids-container');
+gridsContainer.addEventListener('mousedown', (e) => { mouseDown = true; });
+gridsContainer.addEventListener('mousedown', (paintByMouse));
 gridsContainer.addEventListener('mouseover', paintByMouse);
-gridsContainer.addEventListener('mousedown', paintByMouse);
 
 
 // Grids container - Event listener for touch devices

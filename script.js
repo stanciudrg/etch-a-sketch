@@ -63,7 +63,7 @@ progressiveButton.addEventListener("click", () => changeMode('progressive'));
 
 // Size slider button
 
-let slider = document.querySelector('.slider');
+let slider = document.querySelector('#slider');
 
 slider.addEventListener('input', (e) => {
     squareCount = e.target.value;

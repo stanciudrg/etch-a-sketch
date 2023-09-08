@@ -1,10 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono&display=swap');
-
 /* CSS reset */
 
 * {
-    font-family: 'Arial', monospace;
-    letter-spacing: normal;
+    font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     box-sizing: border-box;
     user-select: none;
     -ms-user-select: none;
@@ -162,20 +159,21 @@ body {
     margin-bottom: 0.5rem;
 }
 
-.slider {
+#slider {
     width: 100%;
     appearance: none;
     -webkit-appearance: none;
     background: grey;
     box-shadow: 0px 0px 1px 1px rgb(50, 50, 50);
     transition: 0.15s;
+    border-radius: 0;
 }
 
-.slider:hover {
+#slider:hover {
     background: rgb(110, 110, 110);
 }
 
-.slider::-webkit-slider-thumb {
+#slider::-webkit-slider-thumb {
     width: 20px;
     height: 20px;
     appearance: none;
@@ -185,7 +183,7 @@ body {
     cursor: pointer;
 }
 
-.slider::-moz-range-thumb {
+#slider::-moz-range-thumb {
     width: 20px;
     height: 20px;
     background: white;
@@ -194,6 +192,7 @@ body {
 }
 
 .slider-output {
+    margin-top: 0.3rem;
     font-size: 0.9rem;
     text-align: center;
 }

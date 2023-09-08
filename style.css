@@ -197,6 +197,16 @@ body {
     text-align: center;
 }
 
+/* Hide label names for sighted users but allow the elements to still be recognized by screen readers */
+
+label {
+    position: absolute;
+    left: -9999px;
+    overflow: hidden;
+}
+
+/* ---- */
+
 .clear-button {
     width: 100%;
     height: 50px;
